@@ -7,7 +7,7 @@ clone or download this application and follow the instruction from :
 <br> <strong>Setting up an Existing Symfony Project in </strong>
 
 https://symfony.com/doc/current/setup.html
-<br>
-If you have any issue please rais issue!<br>
+<br><br>
+If you have any issue please raise issue!<br>
 Happy learning.<br>
 Cheers!!
