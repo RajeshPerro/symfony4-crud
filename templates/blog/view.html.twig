@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Home | View
+{% endblock %}
+
+
+{% block body %}
+    <h1 class="page-header text-center">
+        {{ message }}
+    </h1>
+    <div class="row">
+        <div class="col-sm-12 col-md-10">
+            <table class="table table-striped table-responsive">
+                <thead class="">
+                <tr>
+
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <th scope="row">{{ post.id }}</th>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.categorey }}</td>
+                        <td>{{ post.createDate | date("F j,y, g:i:a")}}</td>
+                        <td>
+                            <a  class="btn btn-success" href="/post/details/{{ post.id }}">View</a>
+                            <a  class="btn btn-primary" href="/post/edit/{{ post.id }}">Edit</a>
+                            <a  class="btn btn-danger" href="/post/delete/{{ post.id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}

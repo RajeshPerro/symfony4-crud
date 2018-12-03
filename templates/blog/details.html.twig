@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Home | View
+{% endblock %}
+
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-3">
+        <a href="/post/view" class="btn btn-info" style="margin: 10px">Back</a>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-sm-8 col-md-6">
+            <h3 class="page-header">{{ post.title }}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Author name :</strong> {{ post.authorName }}</li>
+                    <li class="list-group-item"><strong>Category :</strong> {{ post.categorey }}</li>
+                    <li class="list-group-item"><strong>Post Date :</strong> {{ post.createDate | date("F j,y, g:i:a")}}</li>
+                    <li class="list-group-item"><strong>Tags : </strong>{{ post.tag }}</li>
+                </ul>
+                <p>
+                    <strong>Details </strong><hr>
+                    {{ post.description }}
+                </p>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
+{% endblock %}
