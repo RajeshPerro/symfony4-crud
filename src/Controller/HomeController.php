@@ -88,15 +88,14 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/post/edit/{id}", methods={"GET", "POST"}, name="post_edit")
+     * @Route("/post/edit/{id}", methods={"GET","POST"}, name="edit_page")
      */
-    public function editAction(Request $request, $id): Response
+    public function editAction($id, Request $request): Response
     {
         $postToEdit = $this->getDoctrine()
             ->getRepository(Post::class)->find($id);
 
-
-        $form = $this->createForm(EditPostType::class, $postToEdit);
+        $form = $this->createForm(EditPostType::class,$postToEdit);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -106,11 +105,14 @@ class HomeController extends AbstractController
             $this->addFlash('info', 'post updated successfully');
             return $this->redirectToRoute('view_page');
         }
-        return $this->render('blog/edit.html.twig', [
-            'message' => 'Edit your post',
+
+        return $this->render('blog/edit_new.html.twig', array(
+            'message' => 'EDIT PAGE',
             'form' => $form->createView(),
-        ]);
+
+        ));
     }
+
 
 
     /**
